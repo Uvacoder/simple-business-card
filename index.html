@@ -9,11 +9,10 @@
   <style>
     body {
       background: linear-gradient(45deg, #7f0000, #7c5b00, #7a7c00, #087c00, #007d84, #004684, #08007f, #770182);
-background-size: 1800% 1800%;
-  animation: rainbow 18s ease infinite;
+      background-size: 1800% 1800%;
+      animation: rainbow 18s ease infinite;
 
       color: WhiteSmoke;
-      padding: 1rem;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
     }
@@ -24,12 +23,12 @@ background-size: 1800% 1800%;
     }
     .profile {
 			perspective: 1000px;
+      margin: 5vw auto;
     }
     .profile, .flipwrap {
       position: relative;
-      margin: 0 auto 1.5rem;
-      width: 400px;
-      height: 400px;
+      width: min(400px, 90vw);
+      height: min(400px, 90vw);
     }
     :is(.profile:hover, .profile:focus) .flipwrap, .qr {
 			transform: rotateY(180deg);
@@ -50,6 +49,7 @@ background-size: 1800% 1800%;
     hr {
       border-top: 1px solid WhiteSmoke;
       border-bottom: 0;
+      width: 95%;
       margin: 1.5rem auto;
     }
     .socials {
