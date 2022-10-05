@@ -17,16 +17,35 @@ background-size: 1800% 1800%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
     }
-@keyframes rainbow { 
-    0%{background-position:0% 100%}
-    50%{background-position:100% 0%}
-    100%{background-position:0% 100%}
-}
+    @keyframes rainbow { 
+        0%{background-position:0% 100%}
+        50%{background-position:100% 0%}
+        100%{background-position:0% 100%}
+    }
     .profile {
-      display: block;
+			perspective: 1000px;
+    }
+    .profile, .flipwrap {
+      position: relative;
       margin: 0 auto 1.5rem;
-      border-radius: 50%;
+      width: 400px;
+      height: 400px;
+    }
+    :is(.profile:hover, .profile:focus) .flipwrap, .qr {
+			transform: rotateY(180deg);
+    }
+    .flipwrap {
+      transition: transform 0.75s ease-in-out;
+			transform-origin: 50% 50%;
+			transform-style: preserve-3d;
+    }
+    .photo, .qr {
+      position: absolute;
+      top: 0;
+      left: 0;
+			backface-visibility: hidden;
       max-width: 100%;
+      border-radius: 50%;
     }
     hr {
       border-top: 1px solid WhiteSmoke;
@@ -50,7 +69,12 @@ background-size: 1800% 1800%;
   </style>
 </head>
 <body>
-  <img class="profile" src="PFP400x400.jpg">
+  <div class="profile">
+    <div class="flipwrap">
+      <img class="photo" src="PFP400x400.jpg">
+      <img class="qr" src="hovercode.png">
+    </div>
+  </div>
   <h1>Sara Joy</h1>
   <hr>
   The one in the rainbow mask and glasses
